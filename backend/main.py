@@ -1,17 +1,26 @@
-from flask import Flask, jsonify, request, render_template
+import os
+from flask import Flask, send_from_directory
 from flask_cors import CORS
 
-app = Flask(__name__)
+from api.api import api_bp
+
+
+app = Flask(__name__, static_folder="frontend", static_url_path="/frontend")
 CORS(app)
-items = [
-    {"id": 1, "name": "Apple", "price": 1.2},
-    {"id": 2, "name": "Banana", "price": 0.8}
-]
-
-@app.route("/items", methods=["GET"])
-def hello():
-    return jsonify(items)
 
 
+app.register_blueprint(api_bp)
 
-app.run(host="0.0.0.0", port=5000, debug=True)
+
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve_react(path):
+    print(f"serve_react called for path: {path}")
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, "index.html")
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
