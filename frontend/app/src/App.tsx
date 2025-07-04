@@ -1,10 +1,9 @@
-import './App.css';
-import HelloWorld from './components/HelloWorld';
+import AppRoutes from './routes/AppRoutes';
 
 function App() {
   return (
     <div className="App">
-      <HelloWorld />
+      <AppRoutes/>
     </div>
   );
 }
