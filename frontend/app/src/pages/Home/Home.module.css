@@ -1,0 +1,60 @@
+/* Home.module.css */
+
+/* Styling for the main container of the Home page */
+.homeContainer {
+    min-height: 100vh; /* Ensure it takes at least the full viewport height */
+    background-color: #282c36; /* A slightly darker background, similar to Navbar but distinct */
+    color: #f8f8f8; /* Light text color for contrast */
+    font-family: 'Inter', sans-serif; /* Consistent font with Navbar */
+    display: flex; /* Use flexbox for content alignment */
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center content horizontally */
+    padding: 20px; /* Add some padding around the content */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+/* Styling for the welcome message */
+.welcomeMessage {
+    font-size: 2.5rem; /* Larger font size for prominence */
+    font-weight: 700; /* Bold text */
+    margin-top: 50px; /* Space below the Navbar */
+    text-align: center; /* Center the text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+    animation: fadeIn 1s ease-out forwards; /* Fade-in animation */
+    opacity: 0; /* Start hidden for animation */
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .welcomeMessage {
+        font-size: 2rem;
+        margin-top: 30px;
+    }
+
+    .homeContainer {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcomeMessage {
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+
+    .homeContainer {
+        padding: 10px;
+    }
+}

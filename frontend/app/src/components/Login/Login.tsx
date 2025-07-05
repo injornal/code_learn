@@ -1,10 +1,15 @@
-import React, { useState } from "react"
-import styles from './Login.module.css'; // Import your CSS Module
+import React, { use, useState } from "react"
+import styles from './Login.module.css';
+import { useStore } from "../../store";
+import { useNavigate } from "react-router";
 
 
 export default function Login(): React.ReactElement {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+
+    const setIsAuthenticated = useStore((state) => state.setIsAuthenticated);
+    const navigate = useNavigate();
 
     // sends username and passowrd to /api/login.
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -18,11 +23,12 @@ export default function Login(): React.ReactElement {
                 },
                 body: JSON.stringify({ username: username, password: password })
             });
-
-            console.log(response);
         } catch (err: unknown) {   
             console.error(err);
         }
+
+        setIsAuthenticated(true);
+        navigate("/");
     };
 
     return (
