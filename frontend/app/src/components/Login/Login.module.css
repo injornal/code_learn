@@ -1,120 +1,312 @@
-/* src/pages/Login/Login.module.css */
-
-/* Universal box-sizing for consistent layout.
-   Ideally, this would be in your global index.css or App.css. */
-* {
-  box-sizing: border-box;
+/* Login.module.css */
+.loginContainer {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  background: var(--primary-bg);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Styles for the main container of the login window */
-.loginWindow {
-  /* Positioning and Sizing */
+.loginContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(88, 166, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.loginCard {
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
   width: 100%;
-  max-width: 420px; /* Slightly wider than the previous example for a comfortable form */
-  margin: 80px auto; /* Center horizontally, add top/bottom margin */
-  padding: 45px; /* Increased padding slightly for more visual space */
+  max-width: 400px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
 
-  /* Appearance - consistent with Navbar's deep blue-grey theme */
-  background-color: #ffffff; /* White background for contrast */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Soft shadow for depth, similar to Navbar */
-  border: 1px solid #e0e0e0; /* Subtle border */
+.loginHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
 
-  /* Flexbox for internal layout of the form */
+.loginTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loginSubtitle {
+  color: var(--secondary-text);
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+.loginForm {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center form elements horizontally */
-  gap: 25px; /* Space between elements inside the window */
-
-  /* Ensure smooth transitions for any changes */
-  transition: all 0.3s ease-in-out;
+  gap: var(--spacing-lg);
 }
 
-/* Styles for the form itself */
-.loginWindow form {
+.formGroup {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Make form take full width of its parent (.loginWindow) */
-  gap: 18px; /* Space between form elements (labels, inputs, button) */
+  gap: var(--spacing-sm);
 }
 
-/* Styles for labels */
-.loginWindow label {
-  font-size: 1rem; /* Slightly larger font for readability */
-  color: #333; /* Darker text for good contrast */
-  font-weight: 600; /* Bold label text */
-  margin-bottom: 2px; /* Small space below label */
-  align-self: flex-start; /* Align labels to the left */
+.formLabel {
+  font-weight: 500;
+  color: var(--primary-text);
+  font-size: 0.875rem;
+  margin-bottom: 0;
 }
 
-/* Styles for text and password input fields */
-.loginWindow input[type="text"],
-.loginWindow input[type="password"] {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px; /* Rounded input fields */
+.formInput {
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--tertiary-bg);
+  color: var(--primary-text);
+  font-size: 0.875rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--border-hover);
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+  background: var(--secondary-bg);
+}
+
+.formInput::placeholder {
+  color: var(--secondary-text);
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-text);
   font-size: 1rem;
-  outline: none; /* Remove default outline */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: none;
+  transition: var(--transition);
 }
 
-.loginWindow input[type="text"]:focus,
-.loginWindow input[type="password"]:focus {
-  border-color: #2c3e50; /* Highlight border on focus, matching Navbar's background */
-  box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.2); /* Subtle glow on focus */
+.inputWithIcon {
+  padding-left: calc(var(--spacing-md) + 1.5rem);
 }
 
-/* Styles for the submit button */
-.loginWindow input[type="submit"] {
-  width: 100%;
-  padding: 14px 20px; /* More padding for a larger button */
-  background-color: #2c3e50; /* Matching Navbar's background color */
+.formInput:focus + .inputIcon {
+  color: var(--accent-text);
+}
+
+.submitButton {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--gradient-primary);
   color: white;
   border: none;
-  border-radius: 8px; /* Rounded button */
-  font-size: 1.15rem; /* Larger font for the button text */
-  font-weight: bold;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.875rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
-  margin-top: 15px; /* More space above the button */
+  transition: var(--transition-slow);
+  position: relative;
+  overflow: hidden;
 }
 
-.loginWindow input[type="submit"]:hover {
-  background-color: #34495e; /* Slightly lighter on hover, similar to Navbar links */
-  transform: translateY(-2px); /* Subtle lift effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a small shadow on hover */
+.submitButton:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
 }
 
-.loginWindow input[type="submit"]:active {
-  transform: translateY(0); /* Reset on click */
-  background-color: #1a242f; /* Even darker on active */
+.submitButton:active {
+  transform: translateY(0);
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 600px) {
-  .loginWindow {
-    margin: 40px 20px; /* Less margin on smaller screens */
-    padding: 30px;
-    border-radius: 8px; /* Slightly less rounded */
-  }
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
 
-  .loginWindow form {
-    gap: 15px;
-  }
+.submitButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
 
-  .loginWindow label {
-    font-size: 0.9rem;
-  }
+.submitButton:hover::before {
+  left: 100%;
+}
 
-  .loginWindow input[type="text"],
-  .loginWindow input[type="password"],
-  .loginWindow input[type="submit"] {
-    padding: 10px 12px;
-    font-size: 1rem;
-  }
+.loadingSpinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: var(--spacing-sm);
+}
 
-  .loginWindow input[type="submit"] {
-    margin-top: 10px;
+.forgotPassword {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.forgotPasswordLink {
+  color: var(--accent-text);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.forgotPasswordLink:hover {
+  color: var(--primary-text);
+  text-decoration: underline;
+}
+
+.errorMessage {
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid rgba(248, 81, 73, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  color: var(--warning-text);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  animation: slideIn 0.3s ease-out;
+}
+
+.successMessage {
+  background: rgba(86, 211, 100, 0.1);
+  border: 1px solid rgba(86, 211, 100, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  color: var(--success-text);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: var(--spacing-lg) 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.dividerText {
+  padding: 0 var(--spacing-md);
+  color: var(--secondary-text);
+  font-size: 0.875rem;
+}
+
+.socialLogin {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.socialButton {
+  flex: 1;
+  padding: var(--spacing-md);
+  background: var(--tertiary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--primary-text);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.socialButton:hover {
+  background: var(--hover-bg);
+  border-color: var(--border-hover);
+}
+
+.signupLink {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  font-size: 0.875rem;
+}
+
+.signupLink a {
+  color: var(--accent-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.signupLink a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .loginCard {
+    padding: var(--spacing-xl);
+    margin: var(--spacing-md);
+  }
+  
+  .loginTitle {
+    font-size: 1.5rem;
+  }
+  
+  .socialLogin {
+    flex-direction: column;
   }
 }

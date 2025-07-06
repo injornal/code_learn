@@ -1,108 +1,235 @@
-/* src/components/Navbar/Navbar.module.css */
-
-/* Styles for the main navigation bar container */
-.nav {
-  background-color: #2c3e50; /* A deep, professional blue-grey */
-  padding: 1rem 2rem; /* Generous padding top/bottom and sides */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow for depth */
-  border-radius: 10px; /* Slightly rounded corners for the entire nav */
-  margin-bottom: 25px; /* Space below the navbar */
-  display: flex; /* Use flexbox to align content within the nav */
-  align-items: center; /* Vertically center items */
-  justify-content: center; /* Center the ul horizontally by default */
+/* Navbar.module.css */
+.navbar {
+  background: var(--secondary-bg);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--shadow-sm);
 }
 
-/* Styles for the unordered list within the nav */
-.ul {
-  list-style: none; /* Remove default bullet points */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  display: flex; /* Arrange list items horizontally */
-  align-items: center; /* Vertically center list items */
-  width: 100%; /* Take full width of the nav to allow space-between */
-  justify-content: space-between; /* Pushes first and last items to edges, others distribute */
-  gap: 20px; /* Minimum space between items, for when they are closer */
-
-  /* For responsiveness, allow items to wrap if needed */
-  flex-wrap: wrap;
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
 }
 
-/* Styles for each list item (li) */
-/* The user's JSX uses 'left' for all list items. We'll style it generally. */
-.left {
-  /* No specific styles needed on the li itself if link takes care of padding */
-  /* If you want some minimum space around each li, you could add padding here */
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: var(--spacing-xl);
+  margin: 0;
+  padding: 0;
 }
 
-/* Styles for the Link components (which render as <a> tags) */
-.left a {
-  color: #ecf0f1; /* Light text color for contrast */
-  text-decoration: none; /* Remove underline */
-  font-size: 1.15rem; /* Slightly larger font size */
-  font-weight: 500; /* Medium font weight */
-  padding: 0.7rem 1.2rem; /* Generous padding around the link text */
-  border-radius: 8px; /* Rounded corners for the link background */
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease; /* Smooth transitions */
-  display: block; /* Make the whole padding area clickable */
-  white-space: nowrap; /* Prevent links from breaking into multiple lines */
+.navItem {
+  position: relative;
 }
 
-/* Hover and Focus states for links */
-.left a:hover,
-.left a:focus {
-  background-color: #34495e; /* Slightly darker background on hover/focus */
-  color: #ffffff; /* Ensure text remains white */
-  transform: translateY(-2px); /* Subtle lift effect */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a small shadow on hover */
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--secondary-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Active state for links (when clicked) */
-.left a:active {
-  transform: translateY(0); /* Reset lift on click */
-  background-color: #1a242f; /* Even darker background on active */
+.navLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: var(--transition);
+  transform: translateX(-50%);
 }
 
-/* Optional: Styles for the active link (if using NavLink) */
-/* If you decide to switch to NavLink from 'react-router-dom',
-   you can use its 'className' prop with an 'isActive' callback:
-   <NavLink to="/" className={({ isActive }) => isActive ? styles.activeLink : styles.leftLink}>
-*/
-/*
-.activeLink {
-  background-color: #007bff;
+.navLink:hover {
+  color: var(--primary-text);
+  background: var(--hover-bg);
+  transform: translateY(-1px);
+}
+
+.navLink:hover::before {
+  width: 80%;
+}
+
+.navLink.active {
+  color: var(--accent-text);
+  background: var(--accent-bg);
+}
+
+.navLink.active::before {
+  width: 80%;
+}
+
+.navIcon {
+  margin-right: var(--spacing-xs);
+  font-size: 1rem;
+}
+
+.logo {
+  position: absolute;
+  left: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+
+.mobileMenuToggle {
+  display: none;
+  position: absolute;
+  right: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--primary-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.mobileMenuToggle:hover {
+  background: var(--hover-bg);
+}
+
+.mobileMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--secondary-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-md) 0;
+}
+
+.mobileMenu.open {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0 var(--spacing-lg);
+}
+
+.mobileNavItem {
+  width: 100%;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: var(--spacing-md);
+  color: var(--secondary-text);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.mobileNavLink:hover {
+  color: var(--primary-text);
+  background: var(--hover-bg);
+}
+
+.mobileNavLink.active {
+  color: var(--accent-text);
+  background: var(--accent-bg);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Profile/Login Button Special Styling */
+.authButton {
+  background: var(--gradient-primary);
   color: white;
-  font-weight: bold;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
 }
 
-.activeLink:hover {
-  background-color: #0056b3;
+.authButton:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
 }
-*/
 
-/* Responsive adjustments for smaller screens */
+.authButton::before {
+  display: none;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .nav {
-    padding: 0.8rem 1rem; /* Reduce padding */
-    border-radius: 5px; /* Less rounded */
+  .navList {
+    display: none;
   }
-
-  .ul {
-    flex-direction: column; /* Stack items vertically */
-    gap: 10px; /* Adjust gap for vertical stacking */
-    align-items: stretch; /* Make items stretch to fill width */
-    justify-content: center; /* Center the column */
+  
+  .mobileMenuToggle {
+    display: block;
   }
-
-  .left a {
-    font-size: 1rem; /* Slightly smaller font */
-    padding: 0.6rem 1rem; /* Adjust padding */
-    text-align: center; /* Center text within the stacked links */
+  
+  .logo {
+    position: static;
+    transform: none;
+    margin-right: auto;
+  }
+  
+  .navContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
   }
 }
 
-/* For very small screens, ensure no horizontal overflow */
 @media (max-width: 480px) {
-  .nav {
-    padding: 0.6rem 0.5rem;
+  .navbar {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .navContainer {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .logo {
+    font-size: 1.125rem;
   }
 }

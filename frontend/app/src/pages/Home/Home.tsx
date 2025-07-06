@@ -1,11 +1,20 @@
+import React from 'react';
+import styles from './Home.module.css';
 import Navbar from "../../components/Navbar/Navbar";
-import style from './Home.module.css';
+import { useStore } from "../../store";
 
-export default function () {
+export default function Home() {
     return (
-        <div className={style.homeContainer}>
+        <div>
             <Navbar />
-            <p className={style.welcomeMessage}>Welcome home</p>
+            <div className="container">
+                <div className={styles.coursesHeader}>
+                    <h1 className={styles.coursesTitle}>Welcome to CodeLearn</h1>
+                    <p className={styles.coursesSubtitle}>
+                        Your journey to mastering programming starts here. Discover courses, track your progress, and build your future in tech.
+                    </p>
+                </div>
+            </div>
         </div>
     );
 }

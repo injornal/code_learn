@@ -1,23 +1,126 @@
-// src/components/Navbar/Navbar.tsx
-
-import styles from './Navbar.module.css'; // Make sure this path is correct
-import { useStore } from '../../store'; // Assuming your store setup is correct
-import { Link } from 'react-router'; // Changed from 'react-router' to 'react-router-dom' as it's the common package
+import React, { useState } from 'react';
+import styles from './Navbar.module.css';
+import { useStore } from '../../store';
+import { Link, useLocation } from 'react-router';
 
 export default function Navbar() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isAuthenticated = useStore((state) => state.isAuthenticated);
+    const location = useLocation();
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const isActive = (path: string) => {
+        return location.pathname === path;
+    };
 
     return (
-        <nav className={styles.nav}>
-            <ul className={styles.ul}>
-                <li className={styles.left}><Link to="/">Home</Link></li>
-                <li className={styles.left}><Link to="/courses">Courses</Link></li>
-                {isAuthenticated ? (
-                    <li className={styles.left}><Link to="/profile">Profile</Link></li>
-                ) : (
-                    <li className={styles.left}><Link to="/login">Login</Link></li>
-                )}
-            </ul>
+        <nav className={styles.navbar}>
+            <div className={styles.navContainer}>
+                <Link to="/" className={styles.logo}>
+                    CodeLearn
+                </Link>
+                
+                <ul className={styles.navList}>
+                    <li className={styles.navItem}>
+                        <Link 
+                            to="/" 
+                            className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}
+                        >
+                            <i className={`fa fa-home ${styles.navIcon}`}></i>
+                            Home
+                        </Link>
+                    </li>
+                    <li className={styles.navItem}>
+                        <Link 
+                            to="/courses" 
+                            className={`${styles.navLink} ${isActive('/courses') ? styles.active : ''}`}
+                        >
+                            <i className={`fa fa-graduation-cap ${styles.navIcon}`}></i>
+                            Courses
+                        </Link>
+                    </li>
+                    {isAuthenticated ? (
+                        <li className={styles.navItem}>
+                            <Link 
+                                to="/profile" 
+                                className={`${styles.navLink} ${styles.authButton} ${isActive('/profile') ? styles.active : ''}`}
+                            >
+                                <i className={`fa fa-user ${styles.navIcon}`}></i>
+                                Profile
+                            </Link>
+                        </li>
+                    ) : (
+                        <li className={styles.navItem}>
+                            <Link 
+                                to="/login" 
+                                className={`${styles.navLink} ${styles.authButton} ${isActive('/login') ? styles.active : ''}`}
+                            >
+                                <i className={`fa fa-sign-in ${styles.navIcon}`}></i>
+                                Login
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+
+                <button 
+                    className={styles.mobileMenuToggle}
+                    onClick={toggleMobileMenu}
+                    aria-label="Toggle mobile menu"
+                >
+                    <i className={`fa fa-${isMobileMenuOpen ? 'times' : 'bars'}`}></i>
+                </button>
+
+                <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
+                    <ul className={styles.mobileNavList}>
+                        <li className={styles.mobileNavItem}>
+                            <Link 
+                                to="/" 
+                                className={`${styles.mobileNavLink} ${isActive('/') ? styles.active : ''}`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                <i className={`fa fa-home ${styles.navIcon}`}></i>
+                                Home
+                            </Link>
+                        </li>
+                        <li className={styles.mobileNavItem}>
+                            <Link 
+                                to="/courses" 
+                                className={`${styles.mobileNavLink} ${isActive('/courses') ? styles.active : ''}`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                <i className={`fa fa-graduation-cap ${styles.navIcon}`}></i>
+                                Courses
+                            </Link>
+                        </li>
+                        {isAuthenticated ? (
+                            <li className={styles.mobileNavItem}>
+                                <Link 
+                                    to="/profile" 
+                                    className={`${styles.mobileNavLink} ${isActive('/profile') ? styles.active : ''}`}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    <i className={`fa fa-user ${styles.navIcon}`}></i>
+                                    Profile
+                                </Link>
+                            </li>
+                        ) : (
+                            <li className={styles.mobileNavItem}>
+                                <Link 
+                                    to="/login" 
+                                    className={`${styles.mobileNavLink} ${isActive('/login') ? styles.active : ''}`}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    <i className={`fa fa-sign-in ${styles.navIcon}`}></i>
+                                    Login
+                                </Link>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+            </div>
         </nav>
     );
 }
