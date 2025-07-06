@@ -16,10 +16,11 @@ app.register_blueprint(api_bp)
 @app.route("/<path:path>")
 def serve_react(path):
     print(f"serve_react called for path: {path}")
-    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
-        return send_from_directory(app.static_folder, path)
+    static_folder = app.static_folder or "frontend"
+    if path != "" and os.path.exists(os.path.join(static_folder, path)):
+        return send_from_directory(static_folder, path)
     else:
-        return send_from_directory(app.static_folder, "index.html")
+        return send_from_directory(static_folder, "index.html")
 
 
 if __name__ == "__main__":
