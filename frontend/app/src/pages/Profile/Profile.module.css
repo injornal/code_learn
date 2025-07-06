@@ -26,7 +26,7 @@
 }
 
 .profileName {
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--primary-text);
     margin-bottom: var(--spacing-xs);
@@ -34,7 +34,7 @@
 
 .profileEmail {
     color: var(--secondary-text);
-    font-size: 1em;
+    font-size: 1rem;
     margin-bottom: 0;
 }
 
@@ -95,25 +95,24 @@
 /* Example usage in Profile.tsx:
    import styles from './Profile.module.css';
    ...
-   <div className="container">
-       <div className={styles.profileHeader}>
-           <img src="https://placehold.co/120x120/aabbcc/ffffff?text=AVATAR" alt="User Avatar" className={styles.profileAvatar} />
-           <h1 className={styles.profileName}>John Doe</h1>
-           <p className={styles.profileEmail}>john.doe@example.com</p>
+   <div class="container">
+       <div class={styles.profileHeader}>
+           <img src="https://placehold.co/120x120/aabbcc/ffffff?text=AVATAR" alt="User Avatar" class={styles.profileAvatar} />
+           <h1 class={styles.profileName}>John Doe</h1>
+           <p class={styles.profileEmail}>john.doe@example.com</p>
        </div>
 
-       <div className={styles.profileSections}>
-           <aside className={styles.profileSidebar}>
-               <ul className={styles.profileSidebarNav}>
-                   <li><a href="#" className="active">Dashboard</a></li>
+       <div class={styles.profileSections}>
+           <aside class={styles.profileSidebar}>
+               <ul class={styles.profileSidebarNav}>                   <li><a href="#" class="active">Dashboard</a></li>
                    <li><a href="#">Edit Profile</a></li>
                    <li><a href="#">My Courses</a></li>
                    <li><a href="#">Settings</a></li>
                </ul>
            </aside>
-           <main className={styles.profileContent}>
-               <div className="card">
-                   <div className="card-header">Dashboard Overview</div>
+           <main class={styles.profileContent}>
+               <div class="card">
+                   <div class="card-header">Dashboard Overview</div>
                    <p>Welcome to your profile dashboard!</p>
                    // ... content for the active section
                </div>

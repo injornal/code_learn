@@ -12,7 +12,7 @@
 }
 
 .coursesTitle {
-    font-size: 3.5em;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--accent-text);
     margin-bottom: var(--spacing-md);
@@ -58,13 +58,13 @@
 }
 
 .featureCard .icon {
-    font-size: 3em;
+    font-size: 3rem;
     color: var(--accent-text);
     margin-bottom: var(--spacing-md);
 }
 
 .featureCard h3 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
     color: var(--primary-text);
 }
@@ -91,16 +91,16 @@
 /* Example usage in Home.tsx:
    import styles from './Home.module.css';
    ...
-   <div className="container">
-       <section className={styles.heroSection}>
+   <div class="container">
+       <section class={styles.heroSection}>
            <h1>Your Learning Journey Starts Here</h1>
            <p>Leverage AI to personalize your education and achieve your goals faster.</p>
-           <button className="btn btn-primary">Get Started</button>
+           <button class="btn btn-primary">Get Started</button>
        </section>
 
-       <section className={styles.featuresGrid}>
-           <div className={styles.featureCard}>
-               <div className={styles.icon}>💡</div>
+       <section class={styles.featuresGrid}>
+           <div class={styles.featureCard}>
+               <div class={styles.icon}>💡</div>
                <h3>Personalized Learning</h3>
                <p>AI adapts to your pace and style.</p>
            </div>
