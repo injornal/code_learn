@@ -11,18 +11,6 @@
     flex-direction: column;
     height: 100%; /* Ensure cards in a grid have consistent height */
     overflow: hidden; /* Hide overflow content */
-    background: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.courseCard:hover {
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
 }
 
 .courseImage {
@@ -76,6 +64,6 @@
            <span><i class="fa fa-star"></i> 4.5</span>
            <span><i class="fa fa-users"></i> 120 students</span>
        </div>
-       <button class="btn btn-primary mt-20">View Course</button>
+       <button class="btn btn-primary mt-md">View Course</button>
    </div>
 */
