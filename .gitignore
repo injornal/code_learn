@@ -20,3 +20,6 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
+
+# Frontend build
+./backend/frontend/*
