@@ -1,7 +1,6 @@
 import styles from "./Signup.module.css"
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useStore } from "../../store";
 import { useNavigate } from "react-router-dom";
 
 
@@ -12,10 +11,9 @@ export default function Signup() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
 
-    const setIsAuthenticated = useStore((state) => state.setIsAuthenticated);
     const navigate = useNavigate();
 
-    // sends username and password to /api/login.
+    // sends user credentials to /api/signup.
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
         event.preventDefault();
         setIsLoading(true);

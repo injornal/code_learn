@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import { useStore } from '../../store';
-import { Link, useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router-dom';
+import ThemeSelector from '../ThemeSelector/ThemeSelector';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,51 +20,55 @@ export default function Navbar() {
     return (
         <nav className={styles.navbar}>
             <div className={styles.navContainer}>
-                <Link to="/" className={styles.logo}>
-                    CodeLearn
-                </Link>
-                
-                <ul className={styles.navList}>
-                    <li className={styles.navItem}>
-                        <Link 
-                            to="/" 
-                            className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}
-                        >
-                            <i className={`fa fa-home ${styles.navIcon}`}></i>
-                            Home
-                        </Link>
-                    </li>
-                    <li className={styles.navItem}>
-                        <Link 
-                            to="/courses" 
-                            className={`${styles.navLink} ${isActive('/courses') ? styles.active : ''}`}
-                        >
-                            <i className={`fa fa-graduation-cap ${styles.navIcon}`}></i>
-                            Courses
-                        </Link>
-                    </li>
-                    {isAuthenticated ? (
+                <div className={styles.navLeft}>
+                    <Link to="/" className={styles.logo}>
+                        CodeLearn
+                    </Link>
+                </div>
+                <div className={styles.navCenter}>
+                    <ul className={styles.navList}>
                         <li className={styles.navItem}>
                             <Link 
-                                to="/profile" 
-                                className={`${styles.navLink} ${styles.authButton} ${isActive('/profile') ? styles.active : ''}`}
+                                to="/" 
+                                className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}
                             >
-                                <i className={`fa fa-user ${styles.navIcon}`}></i>
-                                Profile
+                                <i className={`fa fa-home ${styles.navIcon}`}></i>
+                                Home
                             </Link>
                         </li>
-                    ) : (
                         <li className={styles.navItem}>
                             <Link 
-                                to="/login" 
-                                className={`${styles.navLink} ${styles.authButton} ${isActive('/login') ? styles.active : ''}`}
+                                to="/courses" 
+                                className={`${styles.navLink} ${isActive('/courses') ? styles.active : ''}`}
                             >
-                                <i className={`fa fa-sign-in ${styles.navIcon}`}></i>
-                                Login
+                                <i className={`fa fa-graduation-cap ${styles.navIcon}`}></i>
+                                Courses
                             </Link>
                         </li>
-                    )}
-                </ul>
+                        <li className={styles.navItem}>
+                            <ThemeSelector />
+                        </li>
+                    </ul>
+                </div>
+                <div className={styles.navRight}>
+                    <ul className={styles.navList}>
+                        {isAuthenticated ? (
+                            <li className={styles.navItem}>
+                                <Link to="/profile" className={`${styles.navLink} ${styles.authButton} ${isActive('/profile') ? styles.active : ''}`}>
+                                    <i className={`fa fa-user ${styles.navIcon}`}></i>
+                                    Profile
+                                </Link>
+                            </li>
+                        ) : (
+                            <li className={styles.navItem}>
+                                <Link to="/login" className={`${styles.navLink} ${styles.authButton} ${isActive('/login') ? styles.active : ''}`}>
+                                    <i className={`fa fa-sign-in ${styles.navIcon}`}></i>
+                                    Login
+                                </Link>
+                            </li>
+                        )}
+                    </ul>
+                </div>
 
                 <button 
                     className={styles.mobileMenuToggle}
@@ -95,6 +100,7 @@ export default function Navbar() {
                                 Courses
                             </Link>
                         </li>
+                        
                         {isAuthenticated ? (
                             <li className={styles.mobileNavItem}>
                                 <Link 
@@ -118,6 +124,7 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         )}
+
                     </ul>
                 </div>
             </div>

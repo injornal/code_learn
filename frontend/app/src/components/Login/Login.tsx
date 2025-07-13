@@ -101,7 +101,7 @@ export default function Login(): React.ReactElement {
                 </form>
                 
                 <div className={styles.forgotPassword}>
-                    <a href="#" className={styles.forgotPasswordLink}>Forgot your password?</a>
+                    <button className={`${styles.linkButton} ${styles.forgotPasswordLink}`}>Forgot your password?</button>
                 </div>
                 
                 <div className={styles.divider}>

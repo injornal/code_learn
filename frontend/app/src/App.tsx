@@ -1,9 +1,13 @@
 import AppRoutes from './routes/AppRoutes';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <AppRoutes/>
+      <Navbar />
+      <main className="main-content">
+        <AppRoutes />
+      </main>
     </div>
   );
 }
