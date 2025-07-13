@@ -22,4 +22,4 @@ node_modules
 .sass-cache
 
 # Frontend build
-./backend/frontend/*
+./backend/frontend
