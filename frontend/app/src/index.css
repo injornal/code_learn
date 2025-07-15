@@ -1,4 +1,4 @@
-/* Global Styles - index.css */
+
 :root {
   /* --- Base Colors (Shared across themes) --- */
   --primary-bg: #0D1117;      /* Deep Space Blue */
@@ -93,6 +93,12 @@ body {
 }
 
 /* Scrollbar Styles */
+/*
+ * Scrollbar Styles
+ * Description: Customizes the appearance of scrollbars across the application.
+ * Usage: Automatically applied to all scrollbars.
+ * Provides: Consistent styling for scrollbar width, track, and thumb, with hover effects.
+ */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -110,7 +116,12 @@ body {
   background: var(--border-hover);
 }
 
-/* Typography */
+/*
+ * Typography
+ * Description: Defines base styles for various heading levels and paragraphs.
+ * Usage: Applied to <h1> through <h6> and <p> elements.
+ * Provides: Consistent font weight, line height, bottom margin, and text color for headings, with a gradient fill for <h1>.
+ */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
@@ -139,19 +150,35 @@ p {
   color: var(--secondary-text);
 }
 
-/* Links */
+/*
+ * Links
+ * Description: Defines base styles for anchor (<a>) elements.
+ * Usage: Applied to all <a> elements.
+ * Provides: Accent text color, no default text decoration, and a smooth transition for hover effects.
+ */
 a {
   color: var(--accent-text);
   text-decoration: none;
   transition: var(--transition);
 }
 
+/*
+ * a:hover
+ * Description: Hover styles for anchor (<a>) elements.
+ * Usage: Automatically applied when the user hovers over an <a> element.
+ * Provides: Changes text color to primary and adds an underline for visual feedback.
+ */
 a:hover {
   color: var(--primary-text);
   text-decoration: underline;
 }
 
-/* Buttons */
+/*
+ * Buttons
+ * Description: Defines base styles for <button> elements and a general .btn class.
+ * Usage: Applied to all <button> elements and elements with the .btn class.
+ * Provides: Consistent display, alignment, padding, border, rounded corners, background, text color, font styling, and interactive hover/active effects.
+ */
 button, .btn {
   display: inline-flex;
   align-items: center;
@@ -170,6 +197,12 @@ button, .btn {
   gap: var(--spacing-sm);
 }
 
+/*
+ * button:hover, .btn:hover
+ * Description: Hover styles for buttons.
+ * Usage: Automatically applied when the user hovers over a <button> or .btn element.
+ * Provides: Changes background, border color, adds a subtle shadow, and a slight upward lift for visual feedback.
+ */
 button:hover, .btn:hover {
   background: var(--hover-bg);
   border-color: var(--border-hover);
@@ -177,22 +210,45 @@ button:hover, .btn:hover {
   transform: translateY(-1px);
 }
 
+/*
+ * button:active, .btn:active
+ * Description: Active styles for buttons.
+ * Usage: Automatically applied when the user clicks and holds a <button> or .btn element.
+ * Provides: Resets the transform for a pressed effect.
+ */
 button:active, .btn:active {
   transform: translateY(0);
 }
 
+/*
+ * .btn-primary
+ * Description: Styles for a primary action button.
+ * Usage: Apply to a <button> or <a> element for the most important actions.
+ * Provides: Gradient background, white text, no border, and enhanced hover effects.
+ */
 .btn-primary {
   background: var(--gradient-primary);
   border-color: transparent;
   color: white;
 }
 
+/*
+ * .btn-primary:hover
+ * Description: Hover styles for primary buttons.
+ * Usage: Automatically applied when the user hovers over a .btn-primary element.
+ * Provides: A more pronounced glow shadow and a slight upward lift.
+ */
 .btn-primary:hover {
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
 
-/* Form Elements */
+/*
+ * Form Elements
+ * Description: Defines base styles for input, textarea, and select elements.
+ * Usage: Applied to <input>, <textarea>, and <select> elements.
+ * Provides: Consistent width, padding, border, rounded corners, background, text color, font styling, and transition for focus effects.
+ */
 input, textarea, select {
   width: 100%;
   padding: var(--spacing-sm) var(--spacing-md);
@@ -205,12 +261,24 @@ input, textarea, select {
   transition: var(--transition);
 }
 
+/*
+ * input:focus, textarea:focus, select:focus
+ * Description: Focus styles for form input elements.
+ * Usage: Automatically applied when an input, textarea, or select element is focused.
+ * Provides: Outline removal, accent border color, and a focus ring shadow for visual feedback.
+ */
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--border-hover);
   box-shadow: 0 0 0 2px var(--focus-ring-color);
 }
 
+/*
+ * label
+ * Description: Defines base styles for form labels.
+ * Usage: Applied to <label> elements.
+ * Provides: Block display, bottom margin, bold font, and primary text color.
+ */
 label {
   display: block;
   margin-bottom: var(--spacing-xs);
@@ -218,15 +286,32 @@ label {
   color: var(--primary-text);
 }
 
+/*
+ * .form-group
+ * Description: Container for grouping related form elements (e.g., label and input).
+ * Usage: Apply to a <div> element that wraps a label and its corresponding input.
+ * Provides: Consistent bottom margin for vertical spacing between form groups.
+ */
 .form-group {
   margin-bottom: var(--spacing-lg);
 }
 
+/*
+ * .form-group label
+ * Description: Adjusts margin for labels within a form group.
+ * Usage: Applied to <label> elements inside a .form-group.
+ * Provides: Consistent bottom margin for labels.
+ */
 .form-group label {
   margin-bottom: var(--spacing-sm);
 }
 
-/* Cards */
+/*
+ * Cards
+ * Description: Defines base styles for card components.
+ * Usage: Apply to a <div> or <article> element to create a card-like container.
+ * Provides: Background, border, rounded corners, padding, subtle shadow, and transition for interactive effects.
+ */
 .card {
   background: var(--secondary-bg);
   border: 1px solid var(--border-color);
@@ -236,12 +321,24 @@ label {
   transition: var(--transition);
 }
 
+/*
+ * .card:hover
+ * Description: Hover styles for card components.
+ * Usage: Automatically applied when the user hovers over a .card element.
+ * Provides: Changes border color, increases shadow, and a slight upward lift for visual feedback.
+ */
 .card:hover {
   border-color: var(--border-hover);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
+/*
+ * .card-header
+ * Description: Styles for the header section within a card.
+ * Usage: Apply to a heading element (e.g., <h3>) within a .card.
+ * Provides: Larger font size, bold text, bottom margin, bottom border, and padding for visual separation.
+ */
 .card-header {
   font-size: 1.25rem;
   font-weight: 600;
@@ -251,7 +348,12 @@ label {
   padding-bottom: var(--spacing-sm);
 }
 
-/* Progress Bar */
+/*
+ * Progress Bar
+ * Description: Defines styles for a progress bar component.
+ * Usage: Apply to a <div> element to create the progress bar track.
+ * Provides: Full width, fixed height, background, rounded corners, and hidden overflow.
+ */
 .progress-bar {
   width: 100%;
   height: 8px;
@@ -261,6 +363,12 @@ label {
   margin-top: var(--spacing-sm);
 }
 
+/*
+ * .progress-fill
+ * Description: Styles for the filled portion of a progress bar.
+ * Usage: Apply to a <div> element inside .progress-bar to represent progress.
+ * Provides: Full height, gradient background, rounded corners, and a smooth transition for width changes.
+ */
 .progress-fill {
   height: 100%;
   background: var(--gradient-primary);
@@ -268,7 +376,12 @@ label {
   transition: width 0.3s ease;
 }
 
-/* Spacing Utilities */
+/*
+ * Spacing Utilities
+ * Description: Utility classes for applying consistent margins and paddings.
+ * Usage: Apply directly to any HTML element to quickly add spacing.
+ * Provides: Predefined spacing values (sm, md, lg) for all sides (m-), top (mt-), bottom (mb-), all padding (p-), and vertical/horizontal padding (py-, px-).
+ */
 .m-sm { margin: var(--spacing-sm); }
 .m-md { margin: var(--spacing-md); }
 .m-lg { margin: var(--spacing-lg); }
@@ -288,7 +401,12 @@ label {
 .py-md { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
 .px-md { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
 
-/* Utility Classes */
+/*
+ * Utility Classes
+ * Description: General-purpose utility classes for common layout and text styling.
+ * Usage: Apply directly to any HTML element to quickly apply styles.
+ * Provides: Classes for container width, flexbox properties (display, direction, alignment, justification, gap), text alignment, font sizes, font family, and opacity.
+ */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -351,7 +469,12 @@ label {
   opacity: 0.75;
 }
 
-/* Loading Animation */
+/*
+ * Loading Animation
+ * Description: Styles for a loading animation spinner.
+ * Usage: Apply to a <div> or <span> element to indicate content is loading.
+ * Provides: A circular spinner with a border and a continuous rotation animation.
+ */
 .loading {
   display: inline-block;
   width: 20px;
@@ -362,13 +485,24 @@ label {
   animation: spin 1s linear infinite;
 }
 
+/*
+ * @keyframes spin
+ * Description: Keyframe animation for a continuous spinning effect.
+ * Usage: Used by .loading spinner.
+ * Provides: Rotates an element 360 degrees repeatedly.
+ */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-/* Responsive Design */
+/*
+ * Responsive Design (768px breakpoint)
+ * Description: Adjusts global spacing and heading font sizes for screens smaller than 768px.
+ * Usage: Automatically applied on medium-sized screens.
+ * Provides: Smaller spacing values and reduced font sizes for h1 and h2.
+ */
 @media (max-width: 768px) {
   :root {
     --spacing-lg: 1rem;
@@ -389,7 +523,18 @@ label {
   }
 }
 
-/* Make the root and body take up the full viewport height */
+/*
+ * Make the root and body take up the full viewport height
+ * Description: Ensures the main structural elements of the page occupy the full height of the viewport.
+ * Usage: Applied to <html>, <body>, #root, and .App elements.
+ * Provides: Consistent height, resets default margins, and sets base font family and smoothing.
+ */
+/*
+ * Make the root and body take up the full viewport height
+ * Description: Ensures the main structural elements of the page occupy the full height of the viewport.
+ * Usage: Applied to <html>, <body>, #root, and .App elements.
+ * Provides: Consistent height, resets default margins, and sets base font family and smoothing.
+ */
 html, body, #root, .App {
   height: 100%;
   margin: 0;
@@ -400,7 +545,12 @@ html, body, #root, .App {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Use flexbox to manage the layout of Navbar and main content */
+/*
+ * Use flexbox to manage the layout of Navbar and main content
+ * Description: Configures the main application container to use flexbox for layout management.
+ * Usage: Applied to the .App element.
+ * Provides: Vertical flex direction, primary background color, and text color.
+ */
 .App {
   display: flex;
   flex-direction: column;
@@ -408,13 +558,23 @@ html, body, #root, .App {
   color: var(--primary-text);
 }
 
-/* The main content area will grow to fill the remaining space */
+/*
+ * The main content area will grow to fill the remaining space
+ * Description: Styles for the main content area of the application.
+ * Usage: Apply to a <div> or <main> element that holds the primary content.
+ * Provides: Allows the content area to expand and fill available space, with vertical scrolling if content overflows.
+ */
 .main-content {
   flex-grow: 1;
   overflow-y: auto; /* Add scroll to the content area if it overflows */
 }
 
-/* This ensures your .container utility class can also fill height */
+/*
+ * This ensures your .container utility class can also fill height
+ * Description: Ensures the .container utility class can also take up full height within its parent.
+ * Usage: Applied to the .container utility class.
+ * Provides: Full height and width, constrained max-width, auto margins for centering, padding, and border-box sizing.
+ */
 .container {
   height: 100%;
   width: 100%;

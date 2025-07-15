@@ -1,4 +1,9 @@
-/* Signup.module.css */
+/*
+ * .signupContainer
+ * Description: Styles for the main container of the signup page.
+ * Usage: Apply to the outermost <div> element that holds the entire signup form and its background.
+ * Provides: Full viewport height, centered content, padding, and a subtle background gradient effect.
+ */
 .signupContainer {
   display: flex;
   min-height: 100vh;
@@ -10,6 +15,12 @@
   overflow: hidden;
 }
 
+/*
+ * .signupContainer::before
+ * Description: Pseudo-element for decorative background gradients within the signup container.
+ * Usage: Automatically applied to the .signupContainer.
+ * Provides: Two radial gradients for a subtle, non-interactive visual effect.
+ */
 .signupContainer::before {
   content: '';
   position: absolute;
@@ -22,6 +33,12 @@
   pointer-events: none;
 }
 
+/*
+ * .signupCard
+ * Description: Styles for the main signup form card.
+ * Usage: Apply to the <div> element that contains the signup form fields and buttons.
+ * Provides: Background, border, rounded corners, shadow, and a backdrop blur effect for a modern look.
+ */
 .signupCard {
   background: var(--secondary-bg);
   border: 1px solid var(--border-color);
@@ -36,11 +53,23 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
+/*
+ * .signupHeader
+ * Description: Styles for the header section within the signup card.
+ * Usage: Apply to a <div> element that wraps the signup title and subtitle.
+ * Provides: Centered text alignment and bottom margin.
+ */
 .signupHeader {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
 }
 
+/*
+ * .signupTitle
+ * Description: Styles for the main title of the signup form.
+ * Usage: Apply to an <h1> or similar heading element within the .signupHeader.
+ * Provides: Large, bold text with a gradient fill for a striking appearance.
+ */
 .signupTitle {
   font-size: 2rem;
   font-weight: 700;
@@ -51,24 +80,48 @@
   background-clip: text;
 }
 
+/*
+ * .signupSubtitle
+ * Description: Styles for a descriptive subtitle below the signup title.
+ * Usage: Apply to a <p> or similar element within the .signupHeader.
+ * Provides: Muted text color and smaller font size.
+ */
 .signupSubtitle {
   color: var(--secondary-text);
   font-size: 0.875rem;
   margin-bottom: 0;
 }
 
+/*
+ * .signupForm
+ * Description: Styles for the signup form itself.
+ * Usage: Apply to the <form> element.
+ * Provides: Vertical stacking of form groups with consistent spacing.
+ */
 .signupForm {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
 }
 
+/*
+ * .formGroup
+ * Description: Container for a form input and its label.
+ * Usage: Apply to a <div> element that wraps a <label> and an <input>.
+ * Provides: Vertical stacking of label and input with consistent spacing.
+ */
 .formGroup {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
 }
 
+/*
+ * .formLabel
+ * Description: Styles for form input labels.
+ * Usage: Apply to <label> elements associated with form inputs.
+ * Provides: Bold text, primary text color, and smaller font size.
+ */
 .formLabel {
   font-weight: 500;
   color: var(--primary-text);
@@ -76,6 +129,12 @@
   margin-bottom: 0;
 }
 
+/*
+ * .formInput
+ * Description: Styles for general form input fields.
+ * Usage: Apply to <input> elements (e.g., type="text", "email", "password").
+ * Provides: Padding, border, rounded corners, background, text color, and transition for focus effects.
+ */
 .formInput {
   padding: var(--spacing-md);
   border: 1px solid var(--border-color);
@@ -87,6 +146,12 @@
   position: relative;
 }
 
+/*
+ * .formInput:focus
+ * Description: Focus styles for form input fields.
+ * Usage: Automatically applied when an input field is focused.
+ * Provides: Outline removal, accent border color, shadow, and background change for visual feedback.
+ */
 .formInput:focus {
   outline: none;
   border-color: var(--border-hover);
@@ -94,14 +159,32 @@
   background: var(--secondary-bg);
 }
 
+/*
+ * .formInput::placeholder
+ * Description: Styles for placeholder text in form input fields.
+ * Usage: Automatically applied to placeholder text.
+ * Provides: Muted text color for placeholders.
+ */
 .formInput::placeholder {
   color: var(--secondary-text);
 }
 
+/*
+ * .inputGroup
+ * Description: Container for an input field that might include an icon.
+ * Usage: Apply to a <div> element that wraps an <input> and an icon element.
+ * Provides: Establishes a relative positioning context for the icon.
+ */
 .inputGroup {
   position: relative;
 }
 
+/*
+ * .inputIcon
+ * Description: Styles for an icon positioned inside an input field.
+ * Usage: Apply to an <i> or <svg> element used as an icon within an .inputGroup.
+ * Provides: Absolute positioning, centering, muted color, and transition for focus effects.
+ */
 .inputIcon {
   position: absolute;
   left: var(--spacing-md);
@@ -113,14 +196,32 @@
   transition: var(--transition);
 }
 
+/*
+ * .inputWithIcon
+ * Description: Adjusts padding for input fields that have an inner icon.
+ * Usage: Apply to an <input> element that is accompanied by an .inputIcon.
+ * Provides: Increased left padding to prevent text from overlapping the icon.
+ */
 .inputWithIcon {
   padding-left: calc(var(--spacing-md) + 1.5rem);
 }
 
+/*
+ * .formInput:focus + .inputIcon
+ * Description: Styles for an input icon when its associated input field is focused.
+ * Usage: Automatically applied when the sibling .formInput is focused.
+ * Provides: Changes the icon color to the accent color.
+ */
 .formInput:focus + .inputIcon {
   color: var(--accent-text);
 }
 
+/*
+ * .submitButton
+ * Description: Styles for the primary form submission button.
+ * Usage: Apply to the <button type="submit"> element.
+ * Provides: Gradient background, white text, rounded corners, bold text, and interactive hover/active effects with a subtle shimmer.
+ */
 .submitButton {
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--gradient-primary);
@@ -135,21 +236,45 @@
   overflow: hidden;
 }
 
+/*
+ * .submitButton:hover
+ * Description: Hover styles for the submit button.
+ * Usage: Automatically applied when the user hovers over the .submitButton.
+ * Provides: Glow shadow and slight upward lift for visual feedback.
+ */
 .submitButton:hover {
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
 
+/*
+ * .submitButton:active
+ * Description: Active styles for the submit button.
+ * Usage: Automatically applied when the user clicks and holds the .submitButton.
+ * Provides: Resets the transform for a pressed effect.
+ */
 .submitButton:active {
   transform: translateY(0);
 }
 
+/*
+ * .submitButton:disabled
+ * Description: Styles for a disabled submit button.
+ * Usage: Automatically applied when the .submitButton has the `disabled` attribute.
+ * Provides: Reduced opacity and a `not-allowed` cursor to indicate it's not interactive.
+ */
 .submitButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
 
+/*
+ * .submitButton::before
+ * Description: Pseudo-element for a shimmer effect on the submit button.
+ * Usage: Automatically applied to the .submitButton.
+ * Provides: A subtle linear gradient that slides across the button on hover.
+ */
 .submitButton::before {
   content: '';
   position: absolute;
@@ -161,10 +286,22 @@
   transition: left 0.5s ease;
 }
 
+/*
+ * .submitButton:hover::before
+ * Description: Hover styles for the submit button's shimmer effect.
+ * Usage: Automatically applied when the user hovers over the .submitButton.
+ * Provides: Animates the shimmer effect across the button.
+ */
 .submitButton:hover::before {
   left: 100%;
 }
 
+/*
+ * .loadingSpinner
+ * Description: Styles for a loading spinner icon.
+ * Usage: Apply to a <div> or <span> element to display a circular loading animation.
+ * Provides: A spinning circle animation, typically used within buttons or while data is loading.
+ */
 .loadingSpinner {
   display: inline-block;
   width: 16px;
@@ -176,6 +313,12 @@
   margin-right: var(--spacing-sm);
 }
 
+/*
+ * .errorMessage
+ * Description: Styles for displaying error messages.
+ * Usage: Apply to a <div> or <p> element to show error feedback to the user.
+ * Provides: A light red background, red border, warning text color, padding, rounded corners, and a subtle slide-in animation.
+ */
 .errorMessage {
   background: rgba(248, 81, 73, 0.1);
   border: 1px solid rgba(248, 81, 73, 0.3);
@@ -189,6 +332,12 @@
   animation: slideIn 0.3s ease-out;
 }
 
+/*
+ * .successMessage
+ * Description: Styles for displaying success messages.
+ * Usage: Apply to a <div> or <p> element to show success feedback to the user.
+ * Provides: A light green background, green border, success text color, padding, rounded corners, and a subtle slide-in animation.
+ */
 .successMessage {
   background: rgba(86, 211, 100, 0.1);
   border: 1px solid rgba(86, 211, 100, 0.3);
@@ -202,6 +351,12 @@
   animation: slideIn 0.3s ease-out;
 }
 
+/*
+ * @keyframes slideIn
+ * Description: Keyframe animation for sliding elements into view.
+ * Usage: Used by .errorMessage and .successMessage.
+ * Provides: A smooth animation that fades in and slides up slightly.
+ */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -213,12 +368,24 @@
   }
 }
 
+/*
+ * .divider
+ * Description: Styles for a horizontal divider with optional text in the center.
+ * Usage: Apply to a <div> element to create a visual separation, often used with .dividerText.
+ * Provides: A flexible layout with lines on either side of content.
+ */
 .divider {
   display: flex;
   align-items: center;
   margin: var(--spacing-lg) 0;
 }
 
+/*
+ * .divider::before, .divider::after
+ * Description: Pseudo-elements to create the lines on either side of the divider text.
+ * Usage: Automatically applied to the .divider element.
+ * Provides: Horizontal lines that expand to fill available space.
+ */
 .divider::before,
 .divider::after {
   content: '';
@@ -227,17 +394,35 @@
   background: var(--border-color);
 }
 
+/*
+ * .dividerText
+ * Description: Styles for text within a divider.
+ * Usage: Apply to a <span> or <p> element inside a .divider.
+ * Provides: Padding, muted text color, and smaller font size.
+ */
 .dividerText {
   padding: 0 var(--spacing-md);
   color: var(--secondary-text);
   font-size: 0.875rem;
 }
 
+/*
+ * .socialLogin
+ * Description: Container for social login buttons.
+ * Usage: Apply to a <div> element that wraps multiple social login buttons.
+ * Provides: A flex layout with consistent spacing between buttons.
+ */
 .socialLogin {
   display: flex;
   gap: var(--spacing-md);
 }
 
+/*
+ * .socialButton
+ * Description: Styles for individual social login buttons.
+ * Usage: Apply to <button> elements for social login (e.g., Google, Facebook).
+ * Provides: Flexible width, padding, background, border, rounded corners, text color, and interactive hover effects.
+ */
 .socialButton {
   flex: 1;
   padding: var(--spacing-md);
@@ -254,11 +439,23 @@
   gap: var(--spacing-sm);
 }
 
+/*
+ * .socialButton:hover
+ * Description: Hover styles for social login buttons.
+ * Usage: Automatically applied when the user hovers over a .socialButton.
+ * Provides: Changes to background and border color for visual feedback.
+ */
 .socialButton:hover {
   background: var(--hover-bg);
   border-color: var(--border-hover);
 }
 
+/*
+ * .signupLink
+ * Description: Styles for a link to the signup page (or other related page).
+ * Usage: Apply to a <div> or <p> element containing a link.
+ * Provides: Centered text, top margin, top border, muted text color, and smaller font size.
+ */
 .signupLink {
   text-align: center;
   margin-top: var(--spacing-xl);
@@ -268,17 +465,34 @@
   font-size: 0.875rem;
 }
 
+/*
+ * .signupLink a
+ * Description: Styles for the anchor tag within the signup link container.
+ * Usage: Apply to the <a> element inside .signupLink.
+ * Provides: Accent text color, bold font, and no text decoration by default.
+ */
 .signupLink a {
   color: var(--accent-text);
   font-weight: 500;
   text-decoration: none;
 }
 
+/*
+ * .signupLink a:hover
+ * Description: Hover styles for the anchor tag within the signup link container.
+ * Usage: Automatically applied when the user hovers over the link.
+ * Provides: Underline text decoration on hover.
+ */
 .signupLink a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Design */
+/*
+ * Media Query for Responsive Design
+ * Description: Adjusts padding, font sizes, and layout for screens smaller than 480px.
+ * Usage: Automatically applied on smaller screens.
+ * Provides: Reduced padding and margin for the signup card, smaller signup title, and a stacked layout for social login buttons.
+ */
 @media (max-width: 480px) {
   .signupCard {
     padding: var(--spacing-xl);

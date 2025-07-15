@@ -1,7 +1,13 @@
-/* src/styles/theme.css */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/*
+ * :root
+ * Description: Defines global CSS variables (custom properties) for the application's theming.
+ * Usage: These variables are used throughout the application to define colors, fonts, spacing, and other design tokens.
+ * Provides: A centralized place to manage the visual style, allowing for easy theme switching and consistent design.
+ */
 :root {
   /* Base Font & Color Palette */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -61,7 +67,7 @@
   --transition-slow: all 0.4s ease-in-out;
 }
 
-/* Apply Theme based on data-theme attribute or prefers-color-scheme */
+
 [data-theme='light'] {
   --primary-bg: var(--primary-bg-light);
   --secondary-bg: var(--secondary-bg-light);
@@ -112,7 +118,7 @@
   }
 }
 
-/* Global Styles */
+
 body {
   font-family: var(--font-primary);
   background-color: var(--primary-bg);
@@ -129,7 +135,7 @@ body {
   padding: 0 var(--spacing-lg);
 }
 
-/* General Button Styles */
+
 .btn {
   display: inline-block;
   font-weight: 600;
@@ -167,7 +173,7 @@ body {
   border-color: var(--border-hover);
 }
 
-/* General Card Styles */
+
 .card {
   background: var(--secondary-bg);
   border: 1px solid var(--border-color);
@@ -190,7 +196,7 @@ body {
   border-bottom: 1px solid var(--border-color);
 }
 
-/* General Form Styles */
+
 .form-group {
   margin-bottom: var(--spacing-lg);
 }
@@ -221,7 +227,7 @@ body {
   background-color: var(--secondary-bg);
 }
 
-/* Utility Classes */
+
 .text-center { text-align: center; }
 .mt-20 { margin-top: 20px; }
 .mb-20 { margin-bottom: 20px; }

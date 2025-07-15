@@ -1,16 +1,21 @@
-/* src/pages/Home/Home.module.css */
-
 /*
-  This file is for the overall layout and specific sections of the Home page.
-  It might include hero sections, feature grids, testimonials, etc.
-*/
-
+ * .pageHeader
+ * Description: Styles for the main header section of a page.
+ * Usage: Apply to a container element (e.g., <div> or <header>) that wraps the page title and subtitle.
+ * Provides: Centered text alignment, and vertical spacing for visual separation.
+ */
 .pageHeader {
     text-align: center;
     margin-bottom: var(--spacing-2xl);
     margin-top: var(--spacing-2xl);
 }
 
+/*
+ * .pageTitle
+ * Description: Styles for the main title within a page header.
+ * Usage: Apply to an <h1> or similar heading element for the primary page title.
+ * Provides: Large, bold, accented text for prominent display.
+ */
 .pageTitle {
     font-size: 2.5rem;
     font-weight: 700;
@@ -18,6 +23,12 @@
     margin-bottom: var(--spacing-md);
 }
 
+/*
+ * .pageSubtitle
+ * Description: Styles for a descriptive subtitle accompanying the page title.
+ * Usage: Apply to a <p> or similar element directly below the page title.
+ * Provides: Muted text color, slightly smaller font size, and constrained width for readability.
+ */
 .pageSubtitle {
     color: var(--secondary-text);
     font-size: 1.1rem;
@@ -26,7 +37,12 @@
     line-height: 1.8;
 }
 
-/* Remove heroSection styles if present */
+/*
+ * .heroSection
+ * Description: Styles for a hero section, typically the first prominent section on a page.
+ * Usage: Apply to a <div> or <section> element that serves as a hero banner.
+ * Provides: Resets all styles to ensure a clean slate for custom hero content.
+ */
 .heroSection {
     all: unset;
 }
@@ -34,6 +50,12 @@
     all: unset;
 }
 
+/*
+ * .featuresGrid
+ * Description: Styles for a responsive grid layout to display features or cards.
+ * Usage: Apply to a container element that holds multiple feature cards.
+ * Provides: A grid that automatically adjusts column count based on screen size, with consistent gaps.
+ */
 .featuresGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -41,6 +63,12 @@
     margin-top: var(--spacing-2xl);
 }
 
+/*
+ * .featureCard
+ * Description: Styles for an individual feature card within a grid.
+ * Usage: Apply to a <div> or <article> element representing a single feature.
+ * Provides: Centered text, padding, background, border, rounded corners, and subtle shadow with transition for interactivity.
+ */
 .featureCard {
     text-align: center;
     padding: var(--spacing-xl);
@@ -51,30 +79,59 @@
     transition: var(--transition);
 }
 
+/*
+ * .featureCard:hover
+ * Description: Hover styles for a feature card.
+ * Usage: Automatically applied when the user hovers over a .featureCard.
+ * Provides: A slight upward lift, increased shadow, and accent border color for visual feedback.
+ */
 .featureCard:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--border-hover);
 }
 
+/*
+ * .featureCard .icon
+ * Description: Styles for an icon within a feature card.
+ * Usage: Apply to an <i> or <svg> element inside a .featureCard.
+ * Provides: Large, accented icon with bottom margin.
+ */
 .featureCard .icon {
     font-size: 3rem;
     color: var(--accent-text);
     margin-bottom: var(--spacing-md);
 }
 
+/*
+ * .featureCard h3
+ * Description: Styles for a heading within a feature card.
+ * Usage: Apply to an <h3> or similar heading element inside a .featureCard.
+ * Provides: Medium-sized, primary-colored heading with bottom margin.
+ */
 .featureCard h3 {
     font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
     color: var(--primary-text);
 }
 
+/*
+ * .featureCard p
+ * Description: Styles for paragraph text within a feature card.
+ * Usage: Apply to a <p> element inside a .featureCard.
+ * Provides: Muted text color with no bottom margin.
+ */
 .featureCard p {
     color: var(--secondary-text);
     margin-bottom: 0;
 }
 
-/* Responsive adjustments */
+/*
+ * Media Query for Responsive Adjustments
+ * Description: Adjusts layout and font sizes for screens smaller than 768px.
+ * Usage: Automatically applied on smaller screens.
+ * Provides: Reduced padding for hero section, smaller hero title, and a single-column layout for the features grid.
+ */
 @media (max-width: 768px) {
     .heroSection {
         padding: var(--spacing-xl) var(--spacing-md);
@@ -87,24 +144,3 @@
         gap: var(--spacing-lg);
     }
 }
-
-/* Example usage in Home.tsx:
-   import styles from './Home.module.css';
-   ...
-   <div class="container">
-       <section class={styles.heroSection}>
-           <h1>Your Learning Journey Starts Here</h1>
-           <p>Leverage AI to personalize your education and achieve your goals faster.</p>
-           <button class="btn btn-primary">Get Started</button>
-       </section>
-
-       <section class={styles.featuresGrid}>
-           <div class={styles.featureCard}>
-               <div class={styles.icon}>💡</div>
-               <h3>Personalized Learning</h3>
-               <p>AI adapts to your pace and style.</p>
-           </div>
-           // ... more feature cards
-       </section>
-   </div>
-*/

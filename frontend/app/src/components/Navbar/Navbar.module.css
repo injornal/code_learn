@@ -1,4 +1,9 @@
-/* Navbar.module.css */
+/*
+ * .navbar
+ * Description: Styles for the main navigation bar at the top of the page.
+ * Usage: Apply to the <nav> element that contains the entire navigation structure.
+ * Provides: Background, bottom border, blur effect, sticky positioning, z-index, padding, and shadow for a prominent header.
+ */
 .navbar {
   background: var(--secondary-bg);
   border-bottom: 1px solid var(--border-color);
@@ -11,6 +16,12 @@
   box-shadow: var(--shadow-sm);
 }
 
+/*
+ * .navContainer
+ * Description: Container for the navigation items to control width and alignment.
+ * Usage: Apply to a <div> inside the .navbar to constrain content width and apply flexbox layout.
+ * Provides: Max-width, auto margins for centering, horizontal padding, and space-between alignment for navigation elements.
+ */
 .navContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -20,18 +31,36 @@
   justify-content: space-between;
 }
 
+/*
+ * .navLeft, .navRight
+ * Description: Containers for left and right-aligned navigation items.
+ * Usage: Apply to <div> elements within .navContainer to group items.
+ * Provides: Flex display and consistent gap between items.
+ */
 .navLeft, .navRight {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
 }
 
+/*
+ * .navCenter
+ * Description: Container for center-aligned navigation items.
+ * Usage: Apply to a <div> element within .navContainer for main navigation links.
+ * Provides: Takes up available space and centers its content.
+ */
 .navCenter {
   flex-grow: 1;
   display: flex;
   justify-content: center;
 }
 
+/*
+ * .navList
+ * Description: Styles for an unordered list of navigation links.
+ * Usage: Apply to a <ul> element containing .navItem elements.
+ * Provides: Removes default list styling, applies flex display, and consistent gap between list items.
+ */
 .navList {
   display: flex;
   align-items: center;
@@ -41,10 +70,22 @@
   padding: 0;
 }
 
+/*
+ * .navItem
+ * Description: Styles for individual navigation list items.
+ * Usage: Apply to each <li> element within .navList.
+ * Provides: Relative positioning for child elements (e.g., active indicators).
+ */
 .navItem {
   position: relative;
 }
 
+/*
+ * .navLink
+ * Description: Styles for individual navigation links.
+ * Usage: Apply to <a> elements within .navItem.
+ * Provides: Flex display, padding, text color, text decoration, font styling, rounded corners, and transition for interactive effects.
+ */
 .navLink {
   display: flex;
   align-items: center;
@@ -58,6 +99,12 @@
   position: relative;
 }
 
+/*
+ * .navLink::before
+ * Description: Pseudo-element for an animated underline effect on navigation links.
+ * Usage: Automatically applied to .navLink.
+ * Provides: A hidden underline that expands from the center on hover/active states.
+ */
 .navLink::before {
   content: '';
   position: absolute;
@@ -70,30 +117,66 @@
   transform: translateX(-50%);
 }
 
+/*
+ * .navLink:hover
+ * Description: Hover styles for navigation links.
+ * Usage: Automatically applied when the user hovers over a .navLink.
+ * Provides: Changes text color, background, and a slight upward lift for visual feedback.
+ */
 .navLink:hover {
   color: var(--primary-text);
   background: var(--hover-bg);
   transform: translateY(-1px);
 }
 
+/*
+ * .navLink:hover::before
+ * Description: Hover styles for the navigation link underline.
+ * Usage: Automatically applied when the user hovers over a .navLink.
+ * Provides: Expands the underline to 80% width.
+ */
 .navLink:hover::before {
   width: 80%;
 }
 
+/*
+ * .navLink.active
+ * Description: Styles for the currently active navigation link.
+ * Usage: Add this class dynamically (e.g., via JavaScript) to the <a> element of the active page.
+ * Provides: Accent text color and background to highlight the current page.
+ */
 .navLink.active {
   color: var(--accent-text);
   background: var(--accent-bg);
 }
 
+/*
+ * .navLink.active::before
+ * Description: Styles for the underline of the active navigation link.
+ * Usage: Automatically applied to the active .navLink.
+ * Provides: Ensures the underline is visible for the active link.
+ */
 .navLink.active::before {
   width: 80%;
 }
 
+/*
+ * .navIcon
+ * Description: Styles for icons within navigation links.
+ * Usage: Apply to an <i> or <svg> element inside a .navLink.
+ * Provides: Right margin and font size for proper spacing and alignment with text.
+ */
 .navIcon {
   margin-right: var(--spacing-xs);
   font-size: 1rem;
 }
 
+/*
+ * .logo
+ * Description: Styles for the website logo in the navigation bar.
+ * Usage: Apply to an <a> or <div> element containing the site logo/name.
+ * Provides: Large, bold text with a gradient fill for a distinctive brand identity.
+ */
 .logo {
   font-size: 1.25rem;
   font-weight: 700;
@@ -104,6 +187,12 @@
   text-decoration: none;
 }
 
+/*
+ * .mobileMenuToggle
+ * Description: Styles for the button that toggles the mobile navigation menu.
+ * Usage: Apply to a <button> element that appears only on smaller screens.
+ * Provides: Hidden by default, then displayed as a simple icon button for mobile navigation.
+ */
 .mobileMenuToggle {
   display: none;
   background: none;
@@ -116,10 +205,22 @@
   transition: var(--transition);
 }
 
+/*
+ * .mobileMenuToggle:hover
+ * Description: Hover styles for the mobile menu toggle button.
+ * Usage: Automatically applied when the user hovers over the .mobileMenuToggle.
+ * Provides: Background change for visual feedback.
+ */
 .mobileMenuToggle:hover {
   background: var(--hover-bg);
 }
 
+/*
+ * .mobileMenu
+ * Description: Styles for the mobile navigation menu that appears when toggled.
+ * Usage: Apply to a <div> or <nav> element that contains the mobile navigation links.
+ * Provides: Hidden by default, absolute positioning, background, border, shadow, and padding.
+ */
 .mobileMenu {
   display: none;
   position: absolute;
@@ -132,11 +233,23 @@
   padding: var(--spacing-md) 0;
 }
 
+/*
+ * .mobileMenu.open
+ * Description: Styles for when the mobile menu is open.
+ * Usage: Add this class dynamically (e.g., via JavaScript) to the .mobileMenu when it should be visible.
+ * Provides: Makes the mobile menu visible with a slide-down animation.
+ */
 .mobileMenu.open {
   display: block;
   animation: slideDown 0.3s ease-out;
 }
 
+/*
+ * .mobileNavList
+ * Description: Styles for the list of navigation links within the mobile menu.
+ * Usage: Apply to a <ul> element inside .mobileMenu.
+ * Provides: Vertical stacking of links, removes default list styling, and consistent spacing.
+ */
 .mobileNavList {
   display: flex;
   flex-direction: column;
@@ -146,10 +259,22 @@
   padding: 0 var(--spacing-lg);
 }
 
+/*
+ * .mobileNavItem
+ * Description: Styles for individual navigation list items within the mobile menu.
+ * Usage: Apply to each <li> element within .mobileNavList.
+ * Provides: Full width for each item.
+ */
 .mobileNavItem {
   width: 100%;
 }
 
+/*
+ * .mobileNavLink
+ * Description: Styles for individual navigation links within the mobile menu.
+ * Usage: Apply to <a> elements within .mobileNavItem.
+ * Provides: Block display, padding, text color, text decoration, font styling, rounded corners, and transition for interactive effects.
+ */
 .mobileNavLink {
   display: block;
   padding: var(--spacing-md);
@@ -161,16 +286,34 @@
   text-align: center;
 }
 
+/*
+ * .mobileNavLink:hover
+ * Description: Hover styles for mobile navigation links.
+ * Usage: Automatically applied when the user hovers over a .mobileNavLink.
+ * Provides: Changes text color and background for visual feedback.
+ */
 .mobileNavLink:hover {
   color: var(--primary-text);
   background: var(--hover-bg);
 }
 
+/*
+ * .mobileNavLink.active
+ * Description: Styles for the currently active mobile navigation link.
+ * Usage: Add this class dynamically (e.g., via JavaScript) to the <a> element of the active page in the mobile menu.
+ * Provides: Accent text color and background to highlight the current page.
+ */
 .mobileNavLink.active {
   color: var(--accent-text);
   background: var(--accent-bg);
 }
 
+/*
+ * @keyframes slideDown
+ * Description: Keyframe animation for sliding elements down into view.
+ * Usage: Used by .mobileMenu.open.
+ * Provides: A smooth animation that fades in and slides down slightly.
+ */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -182,7 +325,12 @@
   }
 }
 
-/* Profile/Login Button Special Styling */
+/*
+ * .authButton
+ * Description: Styles for authentication-related buttons (e.g., Login, Signup).
+ * Usage: Apply to <button> or <a> elements used for authentication actions.
+ * Provides: Gradient background, white text, padding, rounded corners, bold text, and subtle shadow with hover effects.
+ */
 .authButton {
   background: var(--gradient-primary);
   color: white;
@@ -192,18 +340,32 @@
   box-shadow: var(--shadow-sm);
 }
 
+/*
+ * .authButton:hover
+ * Description: Hover styles for authentication buttons.
+ * Usage: Automatically applied when the user hovers over an .authButton.
+ * Provides: Glow shadow and slight upward lift for visual feedback.
+ */
 .authButton:hover {
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
 
+/*
+ * .authButton::before
+ * Description: Hides the ::before pseudo-element for authentication buttons.
+ * Usage: Ensures no extra decorative elements appear on these buttons.
+ */
 .authButton::before {
   display: none;
 }
 
-
-
-/* Responsive Design */
+/*
+ * Media Query for Responsive Design (768px breakpoint)
+ * Description: Adjusts navigation layout for screens smaller than 768px.
+ * Usage: Automatically applied on medium-sized screens.
+ * Provides: Hides center and right navigation sections, and displays the mobile menu toggle button.
+ */
 @media (max-width: 768px) {
   .navCenter, .navRight {
     display: none;
@@ -214,6 +376,12 @@
   }
 }
 
+/*
+ * Media Query for Responsive Design (480px breakpoint)
+ * Description: Further adjusts navigation layout for screens smaller than 480px.
+ * Usage: Automatically applied on small screens.
+ * Provides: Reduced navbar padding and smaller logo font size.
+ */
 @media (max-width: 480px) {
   .navbar {
     padding: var(--spacing-sm) 0;

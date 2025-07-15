@@ -1,10 +1,13 @@
-/* src/pages/Profile/Profile.module.css */
+
+
+
 
 /*
-  This file is for the layout and specific sections of the Profile page.
-  It might include user info, settings, course progress, etc.
-*/
-
+ * .profileHeader
+ * Description: Styles for the header section of the user profile page.
+ * Usage: Apply to a <div> or <header> element at the top of the profile page.
+ * Provides: Centered text, bottom margin, padding, background, border, rounded corners, and a subtle shadow.
+ */
 .profileHeader {
     text-align: center;
     margin-bottom: var(--spacing-xl);
@@ -15,6 +18,12 @@
     box-shadow: var(--shadow-sm);
 }
 
+/*
+ * .profileAvatar
+ * Description: Styles for the user's profile avatar image.
+ * Usage: Apply to an <img> element displaying the user's profile picture.
+ * Provides: Circular shape, object-fit for image scaling, border, and centered display.
+ */
 .profileAvatar {
     width: 120px;
     height: 120px;
@@ -25,6 +34,12 @@
     display: block; /* Ensure it's centered if block */
 }
 
+/*
+ * .profileName
+ * Description: Styles for the user's name displayed on the profile page.
+ * Usage: Apply to an <h1> or similar heading element for the user's name.
+ * Provides: Large, bold text with primary text color and bottom margin.
+ */
 .profileName {
     font-size: 2rem;
     font-weight: 700;
@@ -32,12 +47,24 @@
     margin-bottom: var(--spacing-xs);
 }
 
+/*
+ * .profileEmail
+ * Description: Styles for the user's email address displayed on the profile page.
+ * Usage: Apply to a <p> or similar element for the user's email.
+ * Provides: Muted text color, standard font size, and no bottom margin.
+ */
 .profileEmail {
     color: var(--secondary-text);
     font-size: 1rem;
     margin-bottom: 0;
 }
 
+/*
+ * .profileSections
+ * Description: Styles for the main content area of the profile page, typically a grid layout.
+ * Usage: Apply to a <div> or <main> element that contains different sections of the profile (e.g., sidebar and main content).
+ * Provides: A grid layout with two columns (sidebar and main content) and consistent gap, aligning items to the start.
+ */
 .profileSections {
     display: grid;
     grid-template-columns: 1fr 2fr; /* Example: Sidebar for navigation, main content */
@@ -45,6 +72,12 @@
     align-items: start; /* Align items to the start of their grid area */
 }
 
+/*
+ * .profileSidebar
+ * Description: Styles for the sidebar navigation within the profile sections.
+ * Usage: Apply to an <aside> or <div> element used as a sidebar.
+ * Provides: Background, border, rounded corners, shadow, and padding.
+ */
 .profileSidebar {
     background: var(--secondary-bg);
     border: 1px solid var(--border-color);
@@ -53,16 +86,34 @@
     padding: var(--spacing-xl);
 }
 
+/*
+ * .profileSidebarNav
+ * Description: Styles for the unordered list of navigation links within the profile sidebar.
+ * Usage: Apply to a <ul> element inside .profileSidebar.
+ * Provides: Removes default list styling and resets padding/margin.
+ */
 .profileSidebarNav {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+/*
+ * .profileSidebarNav li
+ * Description: Styles for individual list items within the profile sidebar navigation.
+ * Usage: Apply to each <li> element inside .profileSidebarNav.
+ * Provides: Bottom margin for vertical spacing.
+ */
 .profileSidebarNav li {
     margin-bottom: var(--spacing-sm);
 }
 
+/*
+ * .profileSidebarNav a
+ * Description: Styles for individual navigation links within the profile sidebar.
+ * Usage: Apply to <a> elements inside .profileSidebarNav li.
+ * Provides: Block display, padding, rounded corners, muted text color, and transition for interactive effects.
+ */
 .profileSidebarNav a {
     display: block;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -72,17 +123,35 @@
     text-decoration: none;
 }
 
+/*
+ * .profileSidebarNav a:hover,
+ * .profileSidebarNav a.active
+ * Description: Hover and active styles for profile sidebar navigation links.
+ * Usage: Automatically applied on hover, or dynamically added (e.g., via JavaScript) when a link is active.
+ * Provides: Changes background to accent color and text color to accent text for visual feedback and active state indication.
+ */
 .profileSidebarNav a:hover,
 .profileSidebarNav a.active {
     background: var(--accent-bg);
     color: var(--accent-text);
 }
 
+/*
+ * .profileContent
+ * Description: Styles for the main content area of a profile section.
+ * Usage: Apply to a <div> or <main> element that displays the details of the selected profile section.
+ * Provides: A container for the dynamic content of each profile tab/section.
+ */
 .profileContent {
     /* This area will contain the main content of each profile section */
 }
 
-/* Responsive adjustments */
+/*
+ * Media Query for Responsive Adjustments
+ * Description: Adjusts the grid layout for screens smaller than 992px.
+ * Usage: Automatically applied on medium-sized screens.
+ * Provides: Stacks the profile sections into a single column and adds bottom margin to the sidebar when stacked.
+ */
 @media (max-width: 992px) {
     .profileSections {
         grid-template-columns: 1fr; /* Stack sections on smaller screens */
@@ -92,31 +161,4 @@
     }
 }
 
-/* Example usage in Profile.tsx:
-   import styles from './Profile.module.css';
-   ...
-   <div class="container">
-       <div class={styles.profileHeader}>
-           <img src="https://placehold.co/120x120/aabbcc/ffffff?text=AVATAR" alt="User Avatar" class={styles.profileAvatar} />
-           <h1 class={styles.profileName}>John Doe</h1>
-           <p class={styles.profileEmail}>john.doe@example.com</p>
-       </div>
 
-       <div class={styles.profileSections}>
-           <aside class={styles.profileSidebar}>
-               <ul class={styles.profileSidebarNav}>                   <li><a href="#" class="active">Dashboard</a></li>
-                   <li><a href="#">Edit Profile</a></li>
-                   <li><a href="#">My Courses</a></li>
-                   <li><a href="#">Settings</a></li>
-               </ul>
-           </aside>
-           <main class={styles.profileContent}>
-               <div class="card">
-                   <div class="card-header">Dashboard Overview</div>
-                   <p>Welcome to your profile dashboard!</p>
-                   // ... content for the active section
-               </div>
-           </main>
-       </div>
-   </div>
-*/

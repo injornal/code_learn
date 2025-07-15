@@ -1,0 +1,52 @@
+/*
+ * .canvasWrapper
+ * Description: Styles for the container that wraps the course map canvas.
+ * Usage: Apply to a <div> element that holds the canvas.
+ * Provides: Ensures the wrapper takes full width and height, and hides any overflowing content.
+ */
+.canvasWrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/*
+ * .coursesPage
+ * Description: Styles for the main container of the courses page.
+ * Usage: Apply to the outermost <div> or <main> element of the courses page.
+ * Provides: Sets the height to account for the navbar and prevents scrolling within the page.
+ */
+.coursesPage {
+    height: calc(100vh - 4.5rem);
+    overflow: hidden;
+}
+
+/*
+ * .coursesPage :global(.main-content)
+ * Description: Overrides the overflow property for the global .main-content class specifically within the .coursesPage context.
+ * Usage: Automatically applied when .coursesPage is active.
+ * Provides: Ensures that the main content area does not scroll, preventing double scrollbars.
+ */
+.coursesPage :global(.main-content) {
+    overflow: hidden !important;
+}
+
+/*
+ * :global(body.courses-page-active)
+ * Description: Global override to prevent scrolling on the <body> element when the courses page is active.
+ * Usage: Add the `courses-page-active` class to the <body> element (e.g., via JavaScript) when on the courses page.
+ * Provides: Prevents the entire body from scrolling, ensuring a fixed background or layout.
+ */
+:global(body.courses-page-active) {
+    overflow: hidden !important;
+}
+
+/*
+ * :global(html.courses-page-active)
+ * Description: Global override to prevent scrolling on the <html> element when the courses page is active.
+ * Usage: Add the `courses-page-active` class to the <html> element (e.g., via JavaScript) when on the courses page.
+ * Provides: Prevents the entire html element from scrolling, ensuring a fixed background or layout.
+ */
+:global(html.courses-page-active) {
+    overflow: hidden !important;
+}

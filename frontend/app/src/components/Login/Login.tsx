@@ -3,7 +3,23 @@ import React, { useState } from "react"
 import { useStore } from "../../store";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Login(): React.ReactElement {
+/**
+ * @file Login.tsx
+ * @summary This component provides a user interface for logging into the application.
+ * It handles user input for username and password, communicates with the backend for authentication,
+ * and manages loading and error states.
+ * @module Login
+ */
+
+/**
+ * Login component for user authentication.
+ * Allows users to enter their username and password to sign in.
+ * Manages local state for input fields, loading status, and error messages.
+ * Interacts with the authentication store to update the application's authentication status.
+ *
+ * @returns {React.ReactElement} The Login component UI.
+ */
+const Login = (): React.ReactElement => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -12,7 +28,16 @@ export default function Login(): React.ReactElement {
     const setIsAuthenticated = useStore((state) => state.setIsAuthenticated);
     const navigate = useNavigate();
 
-    // sends username and password to /api/login.
+    /**
+     * Handles the form submission for user login.
+     * Prevents default form submission, sets loading state, and attempts to authenticate the user
+     * by sending username and password to the `/api/login` endpoint.
+     * On successful login, updates authentication status and navigates to the home page.
+     * On failure, sets an error message.
+     *
+     * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+     * @returns {Promise<void>} A promise that resolves when the submission process is complete.
+     */
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
         event.preventDefault();
         setIsLoading(true);
@@ -89,7 +114,6 @@ export default function Login(): React.ReactElement {
                             {error}
                         </div>
                     )}
-                    
                     <button 
                         type="submit" 
                         className={styles.submitButton}
@@ -122,3 +146,5 @@ export default function Login(): React.ReactElement {
         </div>
     );
 }
+
+export default Login;

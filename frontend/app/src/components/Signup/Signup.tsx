@@ -4,7 +4,23 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export default function Signup() {
+/**
+ * @file Signup.tsx
+ * @summary This component provides a user interface for new user registration.
+ * It handles user input for username, email, and password, communicates with the backend for registration,
+ * and manages loading and error states.
+ * @module Signup
+ */
+
+/**
+ * Signup component for user registration.
+ * Allows users to enter their username, email, and password to create a new account.
+ * Manages local state for input fields, loading status, and error messages.
+ * Navigates to the login page upon successful registration.
+ *
+ * @returns {React.ReactElement} The Signup component UI.
+ */
+const Signup = (): React.ReactElement => {
     const [username, setUsername] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -13,7 +29,16 @@ export default function Signup() {
 
     const navigate = useNavigate();
 
-    // sends user credentials to /api/signup.
+    /**
+     * Handles the form submission for user registration.
+     * Prevents default form submission, sets loading state, and attempts to register the user
+     * by sending username, email, and password to the `/api/signup` endpoint.
+     * On successful registration, navigates to the login page.
+     * On failure, sets an error message.
+     *
+     * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+     * @returns {Promise<void>} A promise that resolves when the submission process is complete.
+     */
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
         event.preventDefault();
         setIsLoading(true);
@@ -117,3 +142,5 @@ export default function Signup() {
         </div>
     )
 }
+
+export default Signup;

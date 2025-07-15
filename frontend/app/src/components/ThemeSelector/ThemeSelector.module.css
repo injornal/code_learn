@@ -1,9 +1,20 @@
-/* ThemeSelector.module.css */
+/*
+ * .themeSelector
+ * Description: Container for the theme selection component.
+ * Usage: Apply to the outermost div that wraps the theme toggle button and the dropdown menu.
+ * Provides: Establishes a relative positioning context for the dropdown menu.
+ */
 .themeSelector {
   position: relative;
   display: inline-block;
 }
 
+/*
+ * .themeToggle
+ * Description: Styles for the button that toggles the theme dropdown menu.
+ * Usage: Apply to the <button> element that opens/closes the theme selection dropdown.
+ * Provides: Visual styling for a button, including background, border, text color, padding, rounded corners, and hover effects.
+ */
 .themeToggle {
   background-color: var(--button-bg);
   border: var(--button-border);
@@ -18,15 +29,33 @@
   transition: var(--transition);
 }
 
+/*
+ * .themeToggle:hover
+ * Description: Hover styles for the theme toggle button.
+ * Usage: Automatically applied when the user hovers over the .themeToggle button.
+ * Provides: Changes to background and border color for visual feedback.
+ */
 .themeToggle:hover {
   background-color: var(--button-hover-bg);
   border-color: var(--button-hover-border-color);
 }
 
+/*
+ * .themeToggle svg
+ * Description: Styles for SVG icons within the theme toggle button.
+ * Usage: Apply to <svg> elements directly inside the .themeToggle button.
+ * Provides: Sets the font size for the icon.
+ */
 .themeToggle svg {
   font-size: 1rem;
 }
 
+/*
+ * .dropdownMenu
+ * Description: Styles for the theme selection dropdown menu.
+ * Usage: Apply to the <ul> element that contains the theme options.
+ * Provides: Absolute positioning, background, border, shadow, and hidden state with transition for smooth appearance.
+ */
 .dropdownMenu {
   position: absolute;
   top: calc(100% + var(--spacing-xs));
@@ -46,12 +75,24 @@
   transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out;
 }
 
+/*
+ * .dropdownMenu.open
+ * Description: Styles for when the dropdown menu is open.
+ * Usage: Add this class dynamically (e.g., via JavaScript) to the .dropdownMenu when it should be visible.
+ * Provides: Makes the dropdown visible and animates its entry.
+ */
 .dropdownMenu.open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
+/*
+ * .dropdownItem
+ * Description: Styles for individual items within the theme dropdown menu.
+ * Usage: Apply to each <li> element inside the .dropdownMenu.
+ * Provides: Padding, text color, cursor, and transition for interactive elements.
+ */
 .dropdownItem {
   padding: var(--spacing-sm) var(--spacing-md);
   color: var(--primary-text);
